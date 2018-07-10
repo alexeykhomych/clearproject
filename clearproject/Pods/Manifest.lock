@@ -1,0 +1,25 @@
+PODS:
+  - MaterialComponents/FlexibleHeader (55.3.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/UIMetrics
+    - MDFTextAccessibility
+  - MaterialComponents/private/Application (55.3.0)
+  - MaterialComponents/private/UIMetrics (55.3.0):
+    - MaterialComponents/private/Application
+  - MDFTextAccessibility (1.2.0)
+
+DEPENDENCIES:
+  - MaterialComponents/FlexibleHeader
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MaterialComponents
+    - MDFTextAccessibility
+
+SPEC CHECKSUMS:
+  MaterialComponents: 915f4e844400a35db3ea4c710a9af40aa8bcb093
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+
+PODFILE CHECKSUM: 57a1a3ab88a9a6cb274e6da3384798d1086ed159
+
+COCOAPODS: 1.5.3
