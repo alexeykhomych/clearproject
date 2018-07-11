@@ -7,29 +7,113 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialFlexibleHeader
+
+struct Model {
+    var title: String
+    var description: String
+}
+
+extension ViewController: MDCFlexibleHeaderViewLayoutDelegate {
+    func flexibleHeaderViewController(_: MDCFlexibleHeaderViewController,
+                                      flexibleHeaderViewFrameDidChange flexibleHeaderView: MDCFlexibleHeaderView) {
+        // Called whenever the frame changes.
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.models?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: "none")
+        }
+        
+        cell.fill(self.models![indexPath.row])
+        
+        return cell
+    }
+}
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var tableView: UITableView?
+    @IBOutlet var scrollView: UIScrollView?
+    
+    var models: [Model]?
+    
+    let headerViewController = MDCFlexibleHeaderViewController()
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        addChildViewController(headerViewController)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        addChildViewController(headerViewController)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        guard let tableView = self.tableView else {
+            fatalError()
+        }
+        
+        self.prepareModels()
+        self.prepareTableView(tableView)
+        self.prepapreFlexibleHeader(self.headerViewController,
+                                    rootView: self.view,
+                                    tableView: tableView)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func prepareModels() {
+        self.models = [Model(title: "first", description: "item"),
+                       Model(title: "second", description: "item"),
+                       Model(title: "third", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item"),
+                       Model(title: "fourth", description: "item")]
     }
-    */
-
+    
+    private func prepareTableView(_ tableView: UITableView) {
+        let identifier = String(describing: TableViewCell.self)
+        
+        tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        tableView.delegate = self.headerViewController
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+    }
+    
+    private func prepapreFlexibleHeader(_ viewController: MDCFlexibleHeaderViewController,
+                                        rootView: UIView,
+                                        tableView: UITableView) {
+        viewController.view.frame = rootView.bounds
+        viewController.headerView.trackingScrollView = self.scrollView
+        viewController.headerView.shiftBehavior = .enabledWithStatusBar
+        
+        rootView.addSubview(headerViewController.view)
+        viewController.didMove(toParentViewController: self)
+    }
 }

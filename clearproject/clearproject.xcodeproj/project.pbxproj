@@ -14,6 +14,8 @@
 		AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE23916E20F4C71C00736B13 /* LaunchScreen.storyboard */; };
 		AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23917920F4C76E00736B13 /* ViewController.swift */; };
 		AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917A20F4C76E00736B13 /* ViewController.xib */; };
+		AE23918020F4EA1D00736B13 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23917E20F4EA1D00736B13 /* TableViewCell.swift */; };
+		AE23918120F4EA1D00736B13 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917F20F4EA1D00736B13 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AE23917120F4C71C00736B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE23917920F4C76E00736B13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE23917A20F4C76E00736B13 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		AE23917E20F4EA1D00736B13 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		AE23917F20F4EA1D00736B13 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		B3AB28E90B1A2BF4EDE90D21 /* Pods-clearproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clearproject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clearproject/Pods-clearproject.debug.xcconfig"; sourceTree = "<group>"; };
 		C136450242A3D97B49D07F19 /* Pods-clearproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clearproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-clearproject/Pods-clearproject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,10 +105,20 @@
 		AE23917820F4C75900736B13 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AE23917D20F4EA0B00736B13 /* Cell */,
 				AE23917920F4C76E00736B13 /* ViewController.swift */,
 				AE23917A20F4C76E00736B13 /* ViewController.xib */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		AE23917D20F4EA0B00736B13 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AE23917E20F4EA1D00736B13 /* TableViewCell.swift */,
+				AE23917F20F4EA1D00736B13 /* TableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */,
+				AE23918120F4EA1D00736B13 /* TableViewCell.xib in Resources */,
 				AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */,
 				AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */,
 				AE23916B20F4C71B00736B13 /* Main.storyboard in Resources */,
@@ -222,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE23918020F4EA1D00736B13 /* TableViewCell.swift in Sources */,
 				AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */,
 				AE23916620F4C71B00736B13 /* AppDelegate.swift in Sources */,
 			);

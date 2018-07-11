@@ -1,13 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="clearproject" customModuleProvider="target">
             <connections>
+                <outlet property="scrollView" destination="JOp-fm-MtZ" id="HgN-f4-ZDN"/>
+                <outlet property="tableView" destination="mwH-kE-gNF" id="9eY-2j-wrQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +22,39 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOp-fm-MtZ">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mwH-kE-gNF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="YgV-50-YFa"/>
+                                <outlet property="delegate" destination="-1" id="UX0-9Y-0lT"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="mwH-kE-gNF" secondAttribute="trailing" id="JMX-v7-VQ3"/>
+                        <constraint firstAttribute="bottom" secondItem="mwH-kE-gNF" secondAttribute="bottom" constant="100" id="OFT-Xf-nHg"/>
+                        <constraint firstItem="mwH-kE-gNF" firstAttribute="leading" secondItem="JOp-fm-MtZ" secondAttribute="leading" id="hkN-hI-xNd"/>
+                        <constraint firstItem="mwH-kE-gNF" firstAttribute="top" secondItem="JOp-fm-MtZ" secondAttribute="top" id="wSH-0U-1Yl"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="BE3-pW-lA4"/>
+                    </connections>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="JOp-fm-MtZ" secondAttribute="bottom" id="6mv-Wb-FGt"/>
+                <constraint firstItem="JOp-fm-MtZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="XsH-Ps-vWi"/>
+                <constraint firstItem="JOp-fm-MtZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YZh-QQ-l7b"/>
+                <constraint firstItem="mwH-kE-gNF" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="fvD-kQ-jEe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JOp-fm-MtZ" secondAttribute="trailing" id="g2I-qa-CYh"/>
+                <constraint firstItem="mwH-kE-gNF" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="nJF-jo-dkO"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
