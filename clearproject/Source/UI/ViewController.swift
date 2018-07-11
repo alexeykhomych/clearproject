@@ -7,18 +7,11 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialFlexibleHeader
+import GSKStretchyHeaderView
 
 struct Model {
     var title: String
     var description: String
-}
-
-extension ViewController: MDCFlexibleHeaderViewLayoutDelegate {
-    func flexibleHeaderViewController(_: MDCFlexibleHeaderViewController,
-                                      flexibleHeaderViewFrameDidChange flexibleHeaderView: MDCFlexibleHeaderView) {
-        // Called whenever the frame changes.
-    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -44,18 +37,14 @@ class ViewController: UIViewController {
     
     var models: [Model]?
     
-    let headerViewController = MDCFlexibleHeaderViewController()
+    var stretchyHeader: GSKStretchyHeaderView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        addChildViewController(headerViewController)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        addChildViewController(headerViewController)
     }
 
     override func viewDidLoad() {
@@ -67,53 +56,42 @@ class ViewController: UIViewController {
         
         self.prepareModels()
         self.prepareTableView(tableView)
-        self.prepapreFlexibleHeader(self.headerViewController,
-                                    rootView: self.view,
-                                    tableView: tableView)
+        self.prepapreFlexibleHeader(rootView: self.view, tableView: tableView)
     }
     
     private func prepareModels() {
-        self.models = [Model(title: "first", description: "item"),
-                       Model(title: "second", description: "item"),
-                       Model(title: "third", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item"),
-                       Model(title: "fourth", description: "item")]
+        var models = [Model]()
+        for _ in 0...15 {
+            models.append(Model(title: "first", description: "item"))
+        }
+        
+        self.models = models
     }
     
     private func prepareTableView(_ tableView: UITableView) {
         let identifier = String(describing: TableViewCell.self)
         
         tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
-        tableView.delegate = self.headerViewController
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
     }
     
-    private func prepapreFlexibleHeader(_ viewController: MDCFlexibleHeaderViewController,
-                                        rootView: UIView,
-                                        tableView: UITableView) {
-        viewController.view.frame = rootView.bounds
-        viewController.headerView.trackingScrollView = self.scrollView
-        viewController.headerView.shiftBehavior = .enabledWithStatusBar
+    private func prepapreFlexibleHeader(rootView: UIView, tableView: UITableView) {
+        let headerSize = CGSize(width: tableView.frame.size.width,
+                                height: 200) // 200 will be the default height
+        let headerView = GSKStretchyHeaderView(frame: CGRect(x: 0,
+                                                                  y: 0,
+                                                                  width: headerSize.width,
+                                                                  height: headerSize.height))
+        headerView.backgroundColor = UIColor.blue
+        headerView.minimumContentHeight = 50
+        headerView.maximumContentHeight = 150
+        headerView.contentExpands = false // useful if you want to display the refreshControl below the header view
+
+        // You can specify if the content expands when the table view bounces, and if it shrinks if contentView.height < maximumContentHeight. This is specially convenient if you use auto layout inside the stretchy header view
+        headerView.contentShrinks = false
         
-        rootView.addSubview(headerViewController.view)
-        viewController.didMove(toParentViewController: self)
+        self.stretchyHeader = headerView
+        tableView.addSubview(self.stretchyHeader)
     }
 }

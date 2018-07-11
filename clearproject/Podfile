@@ -6,5 +6,6 @@ target 'clearproject' do
   use_frameworks!
 
   # Pods for clearproject
-pod 'MaterialComponents/FlexibleHeader'
+  pod "GSKStretchyHeaderView"
+
 end

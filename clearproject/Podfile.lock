@@ -1,25 +1,16 @@
 PODS:
-  - MaterialComponents/FlexibleHeader (55.3.0):
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/UIMetrics
-    - MDFTextAccessibility
-  - MaterialComponents/private/Application (55.3.0)
-  - MaterialComponents/private/UIMetrics (55.3.0):
-    - MaterialComponents/private/Application
-  - MDFTextAccessibility (1.2.0)
+  - GSKStretchyHeaderView (1.0.4)
 
 DEPENDENCIES:
-  - MaterialComponents/FlexibleHeader
+  - GSKStretchyHeaderView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - MaterialComponents
-    - MDFTextAccessibility
+    - GSKStretchyHeaderView
 
 SPEC CHECKSUMS:
-  MaterialComponents: 915f4e844400a35db3ea4c710a9af40aa8bcb093
-  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+  GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
 
-PODFILE CHECKSUM: 57a1a3ab88a9a6cb274e6da3384798d1086ed159
+PODFILE CHECKSUM: 6137fb1cc5dc198fb24ca2eb51d36504f4c16386
 
 COCOAPODS: 1.5.3
