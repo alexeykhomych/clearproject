@@ -7,7 +7,12 @@
 //
 
 import UIKit
-import GSKStretchyHeaderView
+
+struct User {
+    var name: String
+    var bio: String
+    var image: String
+}
 
 struct Model {
     var title: String
@@ -33,11 +38,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView?
-    @IBOutlet var scrollView: UIScrollView?
+//    @IBOutlet var stretchyHeader: CustomStretchyHeaderView!
     
     var models: [Model]?
     
-    var stretchyHeader: GSKStretchyHeaderView!
+    var stretchyHeader: CustomStretchyHeaderView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -79,19 +84,20 @@ class ViewController: UIViewController {
     private func prepapreFlexibleHeader(rootView: UIView, tableView: UITableView) {
         let headerSize = CGSize(width: tableView.frame.size.width,
                                 height: 200) // 200 will be the default height
-        let headerView = GSKStretchyHeaderView(frame: CGRect(x: 0,
-                                                                  y: 0,
-                                                                  width: headerSize.width,
-                                                                  height: headerSize.height))
-        headerView.backgroundColor = UIColor.blue
+        let headerView = UIView.instanceFromNib() as! CustomStretchyHeaderView
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: headerSize.width, height: headerSize.height)
         headerView.minimumContentHeight = 50
         headerView.maximumContentHeight = 150
         headerView.contentExpands = false // useful if you want to display the refreshControl below the header view
 
         // You can specify if the content expands when the table view bounces, and if it shrinks if contentView.height < maximumContentHeight. This is specially convenient if you use auto layout inside the stretchy header view
         headerView.contentShrinks = false
+//        headerView.fill(User(name: "user", bio: "Krieger was born in São Paulo, Brazil, and moved to California in 2004 to attend Stanford University. At Stanford, where he studied symbolic systems, he met Kevin Systrom.", image: "avatar"))
+        
+        headerView.imageView?.image = UIImage(named: "avatar")
         
         self.stretchyHeader = headerView
-        tableView.addSubview(self.stretchyHeader)
+        tableView.addSubview(headerView)
     }
 }

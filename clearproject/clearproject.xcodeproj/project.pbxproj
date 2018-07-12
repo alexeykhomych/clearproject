@@ -16,6 +16,8 @@
 		AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917A20F4C76E00736B13 /* ViewController.xib */; };
 		AE23918020F4EA1D00736B13 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23917E20F4EA1D00736B13 /* TableViewCell.swift */; };
 		AE23918120F4EA1D00736B13 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917F20F4EA1D00736B13 /* TableViewCell.xib */; };
+		AEF07EC520F638B900DFA3D0 /* CustomStretchyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF07EC420F638B900DFA3D0 /* CustomStretchyHeaderView.swift */; };
+		AEF07EC720F638C600DFA3D0 /* CustomStretchyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF07EC620F638C600DFA3D0 /* CustomStretchyHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		AE23917A20F4C76E00736B13 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		AE23917E20F4EA1D00736B13 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AE23917F20F4EA1D00736B13 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		AEF07EC420F638B900DFA3D0 /* CustomStretchyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStretchyHeaderView.swift; sourceTree = "<group>"; };
+		AEF07EC620F638C600DFA3D0 /* CustomStretchyHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomStretchyHeaderView.xib; sourceTree = "<group>"; };
 		B3AB28E90B1A2BF4EDE90D21 /* Pods-clearproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clearproject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clearproject/Pods-clearproject.debug.xcconfig"; sourceTree = "<group>"; };
 		C136450242A3D97B49D07F19 /* Pods-clearproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clearproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-clearproject/Pods-clearproject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +109,7 @@
 		AE23917820F4C75900736B13 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AEF07EC220F6388B00DFA3D0 /* Shared */,
 				AE23917D20F4EA0B00736B13 /* Cell */,
 				AE23917920F4C76E00736B13 /* ViewController.swift */,
 				AE23917A20F4C76E00736B13 /* ViewController.xib */,
@@ -119,6 +124,23 @@
 				AE23917F20F4EA1D00736B13 /* TableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AEF07EC220F6388B00DFA3D0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AEF07EC320F6389200DFA3D0 /* CustomStretchyHeaderView */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AEF07EC320F6389200DFA3D0 /* CustomStretchyHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				AEF07EC420F638B900DFA3D0 /* CustomStretchyHeaderView.swift */,
+				AEF07EC620F638C600DFA3D0 /* CustomStretchyHeaderView.xib */,
+			);
+			path = CustomStretchyHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +205,7 @@
 			files = (
 				AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */,
 				AE23918120F4EA1D00736B13 /* TableViewCell.xib in Resources */,
+				AEF07EC720F638C600DFA3D0 /* CustomStretchyHeaderView.xib in Resources */,
 				AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */,
 				AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */,
 				AE23916B20F4C71B00736B13 /* Main.storyboard in Resources */,
@@ -237,6 +260,7 @@
 			files = (
 				AE23918020F4EA1D00736B13 /* TableViewCell.swift in Sources */,
 				AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */,
+				AEF07EC520F638B900DFA3D0 /* CustomStretchyHeaderView.swift in Sources */,
 				AE23916620F4C71B00736B13 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

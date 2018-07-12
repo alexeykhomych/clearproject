@@ -32,12 +32,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="mwH-kE-gNF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4KI-Qw-Lzt"/>
                 <constraint firstItem="mwH-kE-gNF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AEc-bS-jvn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mwH-kE-gNF" secondAttribute="bottom" id="VNF-tB-OJs"/>
                 <constraint firstItem="mwH-kE-gNF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pAz-u2-hB3"/>
-                <constraint firstItem="mwH-kE-gNF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uwb-52-N1d"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

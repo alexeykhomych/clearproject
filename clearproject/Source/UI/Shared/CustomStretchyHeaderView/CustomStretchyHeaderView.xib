@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="VqV-2h-qYC" customClass="CustomStretchyHeaderView" customModule="clearproject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="439" height="262"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="O2M-r0-U6o">
+                    <rect key="frame" x="0.0" y="0.0" width="439" height="262"/>
+                    <accessibility key="accessibilityConfiguration" identifier="0A29EBD7-8D51-455F-BF14-6A97B54C20AB"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4H-nY-90t">
+                    <rect key="frame" x="0.0" y="0.0" width="439" height="52.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6D-i6-yIV">
+                            <rect key="frame" x="15" y="0.0" width="70" height="52.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="7Np-6x-cCh"/>
+                            </constraints>
+                            <state key="normal" title="&lt; Events"/>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="K6Y-F5-V8A">
+                            <rect key="frame" x="355" y="0.0" width="69" height="52.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00t-Tc-KH4">
+                                    <rect key="frame" x="0.0" y="0.0" width="22" height="52.5"/>
+                                    <state key="normal" image="iOS_Navbar_Profile_Copy_2"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttv-fT-bdj">
+                                    <rect key="frame" x="47" y="0.0" width="22" height="52.5"/>
+                                    <state key="normal" image="iOS_Navbar_Profile_Copy"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="N6D-i6-yIV" firstAttribute="top" secondItem="v4H-nY-90t" secondAttribute="top" id="09Q-Jv-LUn"/>
+                        <constraint firstAttribute="trailing" secondItem="K6Y-F5-V8A" secondAttribute="trailing" constant="15" id="8da-ja-JNE"/>
+                        <constraint firstAttribute="bottom" secondItem="N6D-i6-yIV" secondAttribute="bottom" id="Oq2-DD-4nm"/>
+                        <constraint firstItem="N6D-i6-yIV" firstAttribute="leading" secondItem="v4H-nY-90t" secondAttribute="leading" constant="15" id="dnE-7J-Xbo"/>
+                        <constraint firstItem="K6Y-F5-V8A" firstAttribute="top" secondItem="v4H-nY-90t" secondAttribute="top" id="eGU-tH-YCv"/>
+                        <constraint firstAttribute="bottom" secondItem="K6Y-F5-V8A" secondAttribute="bottom" id="pip-uc-Lut"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="v4H-nY-90t" firstAttribute="top" secondItem="Efe-He-WvE" secondAttribute="top" id="56O-fu-6TF"/>
+                <constraint firstItem="v4H-nY-90t" firstAttribute="leading" secondItem="Efe-He-WvE" secondAttribute="leading" id="N8S-8H-Xpe"/>
+                <constraint firstItem="O2M-r0-U6o" firstAttribute="leading" secondItem="Efe-He-WvE" secondAttribute="leading" id="RjM-Vd-ycd"/>
+                <constraint firstItem="O2M-r0-U6o" firstAttribute="top" secondItem="Efe-He-WvE" secondAttribute="top" id="YKn-xa-K5p"/>
+                <constraint firstItem="Efe-He-WvE" firstAttribute="trailing" secondItem="O2M-r0-U6o" secondAttribute="trailing" id="aDH-Gx-MpQ"/>
+                <constraint firstItem="v4H-nY-90t" firstAttribute="height" secondItem="VqV-2h-qYC" secondAttribute="height" multiplier="0.2" id="kyP-te-poK"/>
+                <constraint firstItem="Efe-He-WvE" firstAttribute="trailing" secondItem="v4H-nY-90t" secondAttribute="trailing" id="oVG-rs-k5E"/>
+                <constraint firstItem="Efe-He-WvE" firstAttribute="bottom" secondItem="O2M-r0-U6o" secondAttribute="bottom" id="tRm-6y-lGy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Efe-He-WvE"/>
+            <connections>
+                <outlet property="backButton" destination="N6D-i6-yIV" id="19T-cZ-MSa"/>
+                <outlet property="editButton" destination="00t-Tc-KH4" id="WEW-Yu-dIL"/>
+                <outlet property="imageView" destination="O2M-r0-U6o" id="txr-li-2pR"/>
+                <outlet property="navigationBar" destination="v4H-nY-90t" id="iOs-mV-Js9"/>
+                <outlet property="settingsButton" destination="Ttv-fT-bdj" id="JoA-no-9Vg"/>
+            </connections>
+            <point key="canvasLocation" x="97.5" y="-482"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatar" width="500" height="332"/>
+        <image name="iOS_Navbar_Profile_Copy" width="22" height="22"/>
+        <image name="iOS_Navbar_Profile_Copy_2" width="22" height="22"/>
+    </resources>
+</document>
