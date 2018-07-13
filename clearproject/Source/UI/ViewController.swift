@@ -9,34 +9,31 @@
 import UIKit
 import GSKStretchyHeaderView
 
-struct User {
-    var name: String
-    var bio: String
-    var image: String
-}
-
-struct Model {
-    var title: String
-    var description: String
-}
+let maximumContentHeight: CGFloat = 200.0
+let minimumContentHeight: CGFloat = 150.0
 
 extension ViewController: GSKStretchyHeaderViewStretchDelegate {
     func stretchyHeaderView(_ headerView: GSKStretchyHeaderView, didChangeStretchFactor stretchFactor: CGFloat) {
+        guard let stretchyHeader = self.rootView?.stretchyHeader else { return }
+        
+        var alpha: CGFloat
+        var backgroundColor: UIColor
+        var isUserInfoHidden: Bool
+        
         if stretchFactor <= 0.5 {
-            UIView.animate(withDuration: 0.1) {
-                self.stretchyHeader.imageView?.alpha = 0
-                self.stretchyHeader.navigationBar?.backgroundColor = UIColor.white
-            }
-            self.stretchyHeader.userInfoView?.isHidden = false
-//            self.stretchyHeader.changeColorScheme(.blue)
+            alpha = 0
+            backgroundColor = UIColor.white
+            isUserInfoHidden = false
         } else {
-            UIView.animate(withDuration: 0.1) {
-                self.stretchyHeader.imageView?.alpha = 1
-                self.stretchyHeader.navigationBar?.backgroundColor = UIColor.clear
-            }
-            
-            self.stretchyHeader.userInfoView?.isHidden = true
-//            self.stretchyHeader.changeColorScheme(.white)
+            alpha = 1
+            backgroundColor = UIColor.clear
+            isUserInfoHidden = true
+        }
+        
+        UIView.animate(withDuration: 0.1) {
+            stretchyHeader.imageView?.alpha = alpha
+            stretchyHeader.navigationBar?.backgroundColor = backgroundColor
+            stretchyHeader.userInfoView?.isHidden = isUserInfoHidden
         }
     }
 }
@@ -59,12 +56,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 class ViewController: UIViewController {
     
-    @IBOutlet var tableView: UITableView?
-//    @IBOutlet var stretchyHeader: CustomStretchyHeaderView!
+    var models: [Article]?
     
-    var models: [Model]?
-    
-    var stretchyHeader: CustomStretchyHeaderView!
+    var rootView: View? {
+        return self.viewIfLoaded as? View
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -77,7 +73,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let tableView = self.tableView else {
+        guard let tableView = self.rootView?.tableView else {
             fatalError()
         }
         
@@ -87,9 +83,9 @@ class ViewController: UIViewController {
     }
     
     private func prepareModels() {
-        var models = [Model]()
-        for _ in 0...2 {
-            models.append(Model(title: "first", description: "item"))
+        var models = [Article]()
+        for _ in 0...15 {
+            models.append(Article(title: "first", description: "item"))
         }
         
         self.models = models
@@ -100,15 +96,15 @@ class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = maximumContentHeight
     }
     
     private func prepapreFlexibleHeader(rootView: UIView, tableView: UITableView) {
-        let maxHeight: CGFloat = 200
+        let maxHeight: CGFloat = maximumContentHeight
         
         let headerSize = CGSize(width: tableView.frame.size.width,
                                 height: maxHeight) // 200 will be the default height
-        let headerView = UIView.instanceFromNib() as! CustomStretchyHeaderView
+        let headerView = CustomStretchyHeaderView.fromNib(owner: self) as! CustomStretchyHeaderView
         
         headerView.stretchDelegate = self
         
@@ -123,7 +119,7 @@ class ViewController: UIViewController {
         
         headerView.imageView?.image = UIImage(named: "avatar")
         
-        self.stretchyHeader = headerView
+        self.rootView?.stretchyHeader = headerView
         tableView.addSubview(headerView)
     }
 }

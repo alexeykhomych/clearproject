@@ -13,9 +13,12 @@
 		AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE23916C20F4C71C00736B13 /* Assets.xcassets */; };
 		AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE23916E20F4C71C00736B13 /* LaunchScreen.storyboard */; };
 		AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23917920F4C76E00736B13 /* ViewController.swift */; };
-		AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917A20F4C76E00736B13 /* ViewController.xib */; };
+		AE23917C20F4C76E00736B13 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917A20F4C76E00736B13 /* View.xib */; };
 		AE23918020F4EA1D00736B13 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23917E20F4EA1D00736B13 /* TableViewCell.swift */; };
 		AE23918120F4EA1D00736B13 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917F20F4EA1D00736B13 /* TableViewCell.xib */; };
+		AEA9686620F8DF2100747334 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9686520F8DF2100747334 /* User.swift */; };
+		AEA9686820F8DF3B00747334 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9686720F8DF3B00747334 /* Article.swift */; };
+		AEA9686A20F8DF9800747334 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9686920F8DF9800747334 /* View.swift */; };
 		AEF07EC520F638B900DFA3D0 /* CustomStretchyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF07EC420F638B900DFA3D0 /* CustomStretchyHeaderView.swift */; };
 		AEF07EC720F638C600DFA3D0 /* CustomStretchyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF07EC620F638C600DFA3D0 /* CustomStretchyHeaderView.xib */; };
 /* End PBXBuildFile section */
@@ -29,9 +32,12 @@
 		AE23916F20F4C71C00736B13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE23917120F4C71C00736B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE23917920F4C76E00736B13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE23917A20F4C76E00736B13 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		AE23917A20F4C76E00736B13 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		AE23917E20F4EA1D00736B13 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AE23917F20F4EA1D00736B13 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		AEA9686520F8DF2100747334 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AEA9686720F8DF3B00747334 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		AEA9686920F8DF9800747334 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		AEF07EC420F638B900DFA3D0 /* CustomStretchyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStretchyHeaderView.swift; sourceTree = "<group>"; };
 		AEF07EC620F638C600DFA3D0 /* CustomStretchyHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomStretchyHeaderView.xib; sourceTree = "<group>"; };
 		B3AB28E90B1A2BF4EDE90D21 /* Pods-clearproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clearproject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clearproject/Pods-clearproject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		AE23917720F4C74E00736B13 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AEA9686420F8DF1500747334 /* Model */,
 				AE23917820F4C75900736B13 /* UI */,
 			);
 			path = Source;
@@ -111,8 +118,9 @@
 			children = (
 				AEF07EC220F6388B00DFA3D0 /* Shared */,
 				AE23917D20F4EA0B00736B13 /* Cell */,
+				AEA9686920F8DF9800747334 /* View.swift */,
 				AE23917920F4C76E00736B13 /* ViewController.swift */,
-				AE23917A20F4C76E00736B13 /* ViewController.xib */,
+				AE23917A20F4C76E00736B13 /* View.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -124,6 +132,15 @@
 				AE23917F20F4EA1D00736B13 /* TableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AEA9686420F8DF1500747334 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEA9686520F8DF2100747334 /* User.swift */,
+				AEA9686720F8DF3B00747334 /* Article.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AEF07EC220F6388B00DFA3D0 /* Shared */ = {
@@ -207,7 +224,7 @@
 				AE23918120F4EA1D00736B13 /* TableViewCell.xib in Resources */,
 				AEF07EC720F638C600DFA3D0 /* CustomStretchyHeaderView.xib in Resources */,
 				AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */,
-				AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */,
+				AE23917C20F4C76E00736B13 /* View.xib in Resources */,
 				AE23916B20F4C71B00736B13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +277,10 @@
 			files = (
 				AE23918020F4EA1D00736B13 /* TableViewCell.swift in Sources */,
 				AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */,
+				AEA9686820F8DF3B00747334 /* Article.swift in Sources */,
 				AEF07EC520F638B900DFA3D0 /* CustomStretchyHeaderView.swift in Sources */,
+				AEA9686620F8DF2100747334 /* User.swift in Sources */,
+				AEA9686A20F8DF9800747334 /* View.swift in Sources */,
 				AE23916620F4C71B00736B13 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

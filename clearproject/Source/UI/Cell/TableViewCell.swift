@@ -8,13 +8,15 @@
 
 import UIKit
 
+let tableViewCellIdentifier = "TableViewCell"
+
 class TableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var descriptionLabel: UILabel?
     
     override var reuseIdentifier: String? {
-        return "TableViewCell"
+        return tableViewCellIdentifier
     }
     
     override func awakeFromNib() {
@@ -22,7 +24,7 @@ class TableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func fill(_ model: Model) {
+    func fill(_ model: Article) {
         self.titleLabel?.text = model.title
         self.descriptionLabel?.text = model.description
     }

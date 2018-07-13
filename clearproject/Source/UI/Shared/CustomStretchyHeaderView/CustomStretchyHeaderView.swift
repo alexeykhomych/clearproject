@@ -9,15 +9,15 @@
 import UIKit
 import GSKStretchyHeaderView
 
-enum UIColorScheme {
-    case white
-    case blue
-}
-
 extension UIView {
-    /** Loads instance from nib with the same name. */
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: "CustomStretchyHeaderView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    static func fromNib<T : UIView, U : UIViewController>(owner: U?) -> T? {
+        let name = String(describing: self)
+        guard let view = Bundle.main.loadNibNamed(name, owner: owner, options: nil)?.first as? T
+            else {
+                return nil
+        }
+        
+        return view
     }
 }
 
@@ -31,25 +31,7 @@ class CustomStretchyHeaderView: GSKStretchyHeaderView {
     @IBOutlet var usernameLabel: UILabel?
     @IBOutlet var userInfoView: UIView?
     
-//    override func didChangeStretchFactor(_ stretchFactor: CGFloat) {
-//        super.didChangeStretchFactor(stretchFactor)
-//        print(stretchFactor)
-//    }
-    
     func fill(_ model: User) {
         self.imageView?.image = UIImage(named: model.image)
-    }
-    
-    func changeColorScheme(_ scheme: UIColorScheme) {
-//        switch scheme {
-//        case .white:
-//            self.backButton?.backgroundColor = UIColor.white
-//            self.editButton?.backgroundColor = UIColor.white
-//            self.settingsButton?.backgroundColor = UIColor.white
-//        case .blue:
-//            self.backButton?.backgroundColor = UIColor.blue
-//            self.editButton?.backgroundColor = UIColor.blue
-//            self.settingsButton?.backgroundColor = UIColor.blue
-//        }
     }
 }
