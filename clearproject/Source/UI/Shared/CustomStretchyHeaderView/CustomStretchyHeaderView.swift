@@ -23,13 +23,6 @@ extension UIView {
 
 class CustomStretchyHeaderView: GSKStretchyHeaderView {
     @IBOutlet var imageView: UIImageView?
-    @IBOutlet var navigationBar: UIView?
-    @IBOutlet var backButton: UIButton?
-    @IBOutlet var editButton: UIButton?
-    @IBOutlet var settingsButton: UIButton?
-    @IBOutlet var avatarPreview: UIImageView?
-    @IBOutlet var usernameLabel: UILabel?
-    @IBOutlet var userInfoView: UIView?
     
     func fill(_ model: User) {
         self.imageView?.image = UIImage(named: model.image)

@@ -12,6 +12,32 @@ import GSKStretchyHeaderView
 let maximumContentHeight: CGFloat = 200.0
 let minimumContentHeight: CGFloat = 150.0
 
+private var AssociatedObjectHandle: UInt8 = 0
+
+extension UINavigationBar {
+    
+    var height: CGFloat {
+        get {
+            if let h = objc_getAssociatedObject(self, &AssociatedObjectHandle) as? CGFloat {
+                return h
+            }
+            return 0
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedObjectHandle, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        if self.height > 0 {
+            return CGSize(width: UIScreen.main.bounds.width, height: self.height)
+        }
+        
+        return super.sizeThatFits(size)
+    }
+    
+}
+
 extension ViewController: GSKStretchyHeaderViewStretchDelegate {
     func stretchyHeaderView(_ headerView: GSKStretchyHeaderView, didChangeStretchFactor stretchFactor: CGFloat) {
         guard let stretchyHeader = self.rootView?.stretchyHeader else { return }
@@ -32,8 +58,8 @@ extension ViewController: GSKStretchyHeaderViewStretchDelegate {
         
         UIView.animate(withDuration: 0.1) {
             stretchyHeader.imageView?.alpha = alpha
-            stretchyHeader.navigationBar?.backgroundColor = backgroundColor
-            stretchyHeader.userInfoView?.isHidden = isUserInfoHidden
+//            stretchyHeader.navigationBar?.backgroundColor = backgroundColor
+//            stretchyHeader.userInfoView?.isHidden = isUserInfoHidden
         }
     }
 }
@@ -80,6 +106,9 @@ class ViewController: UIViewController {
         self.prepareModels()
         self.prepareTableView(tableView)
         self.prepapreFlexibleHeader(rootView: self.view, tableView: tableView)
+        
+        self.prepareNavigationBar()
+        
     }
     
     private func prepareModels() {
@@ -121,5 +150,62 @@ class ViewController: UIViewController {
         
         self.rootView?.stretchyHeader = headerView
         tableView.addSubview(headerView)
+    }
+    
+    private func prepareNavigationBar() {
+        let navigationItem = self.navigationItem
+        
+        let backBarButtonItem = UIBarButtonItem(title: "back", style: .done, target: nil, action: nil)
+        let settingsBarButtonItem = UIBarButtonItem(title: "settings", style: .done, target: nil, action: nil)
+        let editBarButtonItem = UIBarButtonItem(title: "edit", style: .done, target: nil, action: nil)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Viktor Y."
+        titleLabel.sizeToFit()
+//        titleLabel.center
+        
+        let titleImage = UIImageView(image: #imageLiteral(resourceName: "avatar"))  
+
+        let imageAspect = titleImage.image!.size.width / titleImage.image!.size.height
+        // Setting the image frame so that it's immediately before the text:
+        titleImage.frame = CGRect(x: titleLabel.frame.origin.x - titleLabel.frame.size.height*imageAspect,
+                                  y: titleLabel.frame.origin.y,
+                                  width: titleLabel.frame.size.height * imageAspect,
+                                  height: titleLabel.frame.size.height)
+        
+        titleImage.contentMode = UIViewContentMode.scaleAspectFit
+        
+        let titleView = UIView()
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(titleImage)
+        titleView.sizeToFit()
+        
+        
+        let view = AvatarWithTitleView.fromNib(owner: self) as? AvatarWithTitleView
+        view?.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        view?.sizeToFit()
+        
+        navigationItem.titleView = view
+        
+        navigationItem.leftBarButtonItem = backBarButtonItem
+        navigationItem.rightBarButtonItems = [editBarButtonItem, settingsBarButtonItem]
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        if #available(iOS 11.0, *) {
+            self.setupUI()
+        } else {
+            let height: CGFloat = 100 //whatever height you want to add to the existing height
+            let bounds = self.navigationController!.navigationBar.bounds
+            self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    private func setupUI() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
