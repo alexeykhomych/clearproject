@@ -15,34 +15,86 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .lightGray
-        self.createBlueView()
-        self.createGreenView()
-    }
-
-    func createBlueView() {
-        let blueView = UIView()
-        blueView.backgroundColor = .blue
-        
-        self.view.addSubview(blueView)
-        
-        blueView.translatesAutoresizingMaskIntoConstraints = false
-        blueView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        blueView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
-        blueView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5).isActive = true
-        blueView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.33).isActive = true
+        self.example()
+        self.customNavBar()
+        self.viewsInView()
     }
     
-    func createGreenView() {
-        let greenView = UIView()
-        greenView.backgroundColor = .green
+    func example() {
+        let superview = self.view
+        let button = UIButton()
         
-        self.view.addSubview(greenView)
+        button.layer.cornerRadius = 33
+        button.setTitle("+", for: .normal)
+        button.backgroundColor = .black
         
-        greenView.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-50)
-            make.width.equalToSuperview().dividedBy(2)
-            make.height.equalToSuperview().dividedBy(3)
+        superview?.addSubview(button)
+        
+        button.snp.makeConstraints { (make) in
+            make.width.equalTo(66)
+            make.height.equalTo(66)
+            make.bottom.equalToSuperview().offset(-20)
+            make.right.equalToSuperview().offset(-20)
         }
+    }
+    
+    func customNavBar() {
+        let superView = self.view
+        let navBar = UIView()
+        
+        navBar.backgroundColor = .green
+        superView?.addSubview(navBar)
+        
+        navBar.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.height.equalTo(80)
+        }
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Funny snap"
+        titleLabel.textColor = .black
+        titleLabel.sizeToFit()
+        
+        navBar.addSubview(titleLabel)
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+    }
+    
+    func viewsInView() {
+        let container = UIView()
+        container.backgroundColor = .yellow
+        container.snp.makeConstraints { (make) in
+            
+        }
+        
+        let firstView = UIView()
+        firstView.backgroundColor = .black
+        firstView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(50)
+            make.height.equalTo(40)
+            make.width.equalTo(60)
+            make.leading.equalToSuperview().offset(30)
+        }
+        
+        let secondView = UIView()
+        secondView.backgroundColor = .gray
+        secondView.snp.makeConstraints { (make) in
+            make.width.equalTo(firstView.snp.width)
+            make.height.equalTo(firstView.snp.height)
+        }
+        
+        let thirdView = UIView()
+        thirdView.backgroundColor = .gray
+        thirdView.snp.makeConstraints { (make) in
+            
+        }
+        
+        container.addSubview(firstView)
+        container.addSubview(secondView)
+        container.addSubview(thirdView)
+        
+        self.view.addSubview(container)
     }
 }
