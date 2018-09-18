@@ -1,0 +1,6 @@
+framework module Pods_clearproject {
+  umbrella header "Pods-clearproject-umbrella.h"
+
+  export *
+  module * { export * }
+}
