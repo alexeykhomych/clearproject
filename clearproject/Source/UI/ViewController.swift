@@ -7,29 +7,74 @@
 //
 
 import UIKit
+import PagingMenuController
+
+private struct PagingMenuOptions: PagingMenuControllerCustomizable {
+    
+    var componentType: ComponentType {
+        return .menuView(menuOptions: MenuOptions())
+    }
+    
+    private let viewController1 = FirstViewController()
+    private let viewController2 = SecondController()
+    
+    fileprivate struct MenuOptions: MenuViewCustomizable {
+        var displayMode: MenuDisplayMode {
+            return .segmentedControl
+        }
+        var focusMode: MenuFocusMode {
+            return .roundRect(radius: 12, horizontalPadding: 8, verticalPadding: 8, selectedColor: UIColor.lightGray)
+        }
+        var itemsOptions: [MenuItemViewCustomizable] {
+            return [MenuItem1(), MenuItem2()]
+        }
+    }
+    
+    fileprivate struct MenuItem1: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: "First Menu"))
+        }
+    }
+    
+    fileprivate struct MenuItem2: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: "Second Menu"))
+        }
+    }
+}
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let options = PagingMenuOptions()
+        let pagingMenuController = PagingMenuController(options: options)
+        pagingMenuController.view.frame.origin.y += 64
+        pagingMenuController.view.frame.size.height -= 64
+        pagingMenuController.onMove = { state in
+            switch state {
+            case let .willMoveController(menuController, previousMenuController):
+                print(previousMenuController)
+                print(menuController)
+            case let .didMoveController(menuController, previousMenuController):
+                print(previousMenuController)
+                print(menuController)
+            case let .willMoveItem(menuItemView, previousMenuItemView):
+                print(previousMenuItemView)
+                print(menuItemView)
+            case let .didMoveItem(menuItemView, previousMenuItemView):
+                print(previousMenuItemView)
+                print(menuItemView)
+            case .didScrollStart:
+                print("Scroll start")
+            case .didScrollEnd:
+                print("Scroll end")
+            }
+        }
+        
+        addChildViewController(pagingMenuController)
+        view.addSubview(pagingMenuController.view)
+        pagingMenuController.didMove(toParentViewController: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

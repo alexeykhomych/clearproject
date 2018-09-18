@@ -14,6 +14,10 @@
 		AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE23916E20F4C71C00736B13 /* LaunchScreen.storyboard */; };
 		AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23917920F4C76E00736B13 /* ViewController.swift */; };
 		AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE23917A20F4C76E00736B13 /* ViewController.xib */; };
+		AE51127321512C8E0084269E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51127121512C8E0084269E /* FirstViewController.swift */; };
+		AE51127421512C8E0084269E /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE51127221512C8E0084269E /* FirstViewController.xib */; };
+		AE51127721512C9E0084269E /* SecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51127521512C9E0084269E /* SecondController.swift */; };
+		AE51127821512C9E0084269E /* SecondController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE51127621512C9E0084269E /* SecondController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		AE23917120F4C71C00736B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE23917920F4C76E00736B13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE23917A20F4C76E00736B13 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		AE51127121512C8E0084269E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		AE51127221512C8E0084269E /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		AE51127521512C9E0084269E /* SecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondController.swift; sourceTree = "<group>"; };
+		AE51127621512C9E0084269E /* SecondController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondController.xib; sourceTree = "<group>"; };
 		E23B7A6593126C0273DE3C45 /* Pods_clearproject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clearproject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +111,10 @@
 			children = (
 				AE23917920F4C76E00736B13 /* ViewController.swift */,
 				AE23917A20F4C76E00736B13 /* ViewController.xib */,
+				AE51127121512C8E0084269E /* FirstViewController.swift */,
+				AE51127221512C8E0084269E /* FirstViewController.xib */,
+				AE51127521512C9E0084269E /* SecondController.swift */,
+				AE51127621512C9E0084269E /* SecondController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -168,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */,
+				AE51127421512C8E0084269E /* FirstViewController.xib in Resources */,
 				AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */,
+				AE51127821512C9E0084269E /* SecondController.xib in Resources */,
 				AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */,
 				AE23916B20F4C71B00736B13 /* Main.storyboard in Resources */,
 			);
@@ -220,6 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE51127321512C8E0084269E /* FirstViewController.swift in Sources */,
+				AE51127721512C9E0084269E /* SecondController.swift in Sources */,
 				AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */,
 				AE23916620F4C71B00736B13 /* AppDelegate.swift in Sources */,
 			);
