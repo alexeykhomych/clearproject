@@ -12,11 +12,16 @@ import PagingMenuController
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     
     var componentType: ComponentType {
-        return .menuView(menuOptions: MenuOptions())
+//        return .menuView(menuOptions: MenuOptions())
+        return .all(menuOptions: MenuOptions(), pagingControllers: pagingControllers)
     }
     
     private let viewController1 = FirstViewController()
     private let viewController2 = SecondController()
+
+    fileprivate var pagingControllers: [UIViewController] {
+        return [viewController1, viewController2]
+    }
     
     fileprivate struct MenuOptions: MenuViewCustomizable {
         var displayMode: MenuDisplayMode {

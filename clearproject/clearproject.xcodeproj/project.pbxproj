@@ -18,6 +18,8 @@
 		AE51127421512C8E0084269E /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE51127221512C8E0084269E /* FirstViewController.xib */; };
 		AE51127721512C9E0084269E /* SecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51127521512C9E0084269E /* SecondController.swift */; };
 		AE51127821512C9E0084269E /* SecondController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE51127621512C9E0084269E /* SecondController.xib */; };
+		AE51127B2151471C0084269E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5112792151471C0084269E /* TableViewCell.swift */; };
+		AE51127C2151471C0084269E /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE51127A2151471C0084269E /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		AE51127221512C8E0084269E /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		AE51127521512C9E0084269E /* SecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondController.swift; sourceTree = "<group>"; };
 		AE51127621512C9E0084269E /* SecondController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondController.xib; sourceTree = "<group>"; };
+		AE5112792151471C0084269E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		AE51127A2151471C0084269E /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		E23B7A6593126C0273DE3C45 /* Pods_clearproject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clearproject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +119,8 @@
 				AE51127221512C8E0084269E /* FirstViewController.xib */,
 				AE51127521512C9E0084269E /* SecondController.swift */,
 				AE51127621512C9E0084269E /* SecondController.xib */,
+				AE5112792151471C0084269E /* TableViewCell.swift */,
+				AE51127A2151471C0084269E /* TableViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			files = (
 				AE23917020F4C71C00736B13 /* LaunchScreen.storyboard in Resources */,
 				AE51127421512C8E0084269E /* FirstViewController.xib in Resources */,
+				AE51127C2151471C0084269E /* TableViewCell.xib in Resources */,
 				AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */,
 				AE51127821512C9E0084269E /* SecondController.xib in Resources */,
 				AE23917C20F4C76E00736B13 /* ViewController.xib in Resources */,
@@ -234,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE51127B2151471C0084269E /* TableViewCell.swift in Sources */,
 				AE51127321512C8E0084269E /* FirstViewController.swift in Sources */,
 				AE51127721512C9E0084269E /* SecondController.swift in Sources */,
 				AE23917B20F4C76E00736B13 /* ViewController.swift in Sources */,
