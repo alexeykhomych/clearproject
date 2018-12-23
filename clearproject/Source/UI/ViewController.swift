@@ -7,29 +7,31 @@
 //
 
 import UIKit
+import PDFKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIDocumentInteractionControllerDelegate {
+    
+    let docController = UIDocumentInteractionController()
+    
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
+    func documentInteractionControllerViewForPreview(_ controller: UIDocumentInteractionController) -> UIView? {
+        return view
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let path = Bundle.main.path(forResource: "1", ofType: "pdf") {
+            docController.delegate = self
+            let url = URL(fileURLWithPath: path)
+            docController.url = url
+//            docController.uti = url.typeIdentifier ?? "public.data, public.content"
+//            docController.name = url.localizedName ?? url.lastPathComponent
+            docController.presentPreview(animated: true)
+            view.bringSubview(toFront: docController)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
