@@ -18,8 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
-        window.rootViewController = ViewController()
+        window.rootViewController = UINavigationController(rootViewController: HomeViewController())
         window.makeKeyAndVisible()
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+
+        application.statusBarStyle = .lightContent
+        
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = UIColor.rgb(red: 194, green: 32, blue: 31)
+        
+        window.addSubview(statusBarBackgroundView)
+        window.addConstraintWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window.addConstraintWithFormat(format: "V:|[v0(20)]|", views: statusBarBackgroundView)
         
         return true
     }
