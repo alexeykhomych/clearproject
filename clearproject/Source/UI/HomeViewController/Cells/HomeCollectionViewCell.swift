@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeCollectionViewCell: UICollectionViewCell, ReusableCellType {
+class HomeCollectionViewCell: BaseCollectionViewCell, ReusableCellType {
     
     typealias Model = AnyObject
     
@@ -59,22 +59,7 @@ class HomeCollectionViewCell: UICollectionViewCell, ReusableCellType {
         return textView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        backgroundColor = .red
-    }
-    
-    func configure() {
+    override func configure() {
         addSubview(thumbnailImageView)
         addSubview(separatorView)
         addSubview(userProfileImageView)

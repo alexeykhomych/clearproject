@@ -9,6 +9,14 @@
 
 import UIKit
 
+extension HomeViewController: NavigationBarProtocol {
+    func setupMenuBar() {
+        rootView.addSubview(menuBar)
+        rootView.addConstraintWithFormat(format: "H:|[v0]|", views: menuBar)
+        rootView.addConstraintWithFormat(format: "V:|[v0(50)]|", views: menuBar)
+    }
+}
+
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -32,12 +40,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-class HomeViewController: UIViewController  {
+class HomeViewController: UIViewController {
     
     //MARK: Accessors
     
+    var menuBar: MenuBar = {
+        let menu = MenuBar()
+        
+        return menu
+    }()
+    
     private var rootView: HomeView {
         return view as! HomeView
+    }
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     //MARK: View life-cycle
@@ -54,7 +72,7 @@ class HomeViewController: UIViewController  {
         navigationItem.titleView = titleLabel
         
         configureCollectionView()
-        
+        setupMenuBar()
     }
     
     //MARK: Private methods
@@ -66,5 +84,8 @@ class HomeViewController: UIViewController  {
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCollectionViewCell")
+        
+        collectionView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
     }
 }

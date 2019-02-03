@@ -16,6 +16,11 @@
 		AE23916D20F4C71C00736B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE23916C20F4C71C00736B13 /* Assets.xcassets */; };
 		AE67592321FA376F00183845 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE67592221FA376F00183845 /* HomeViewController.xib */; };
 		AE67592521FA379D00183845 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67592421FA379D00183845 /* HomeView.swift */; };
+		AE6D473922076FC500957E0F /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D473822076FC500957E0F /* MenuBar.swift */; };
+		AE6D473C2207701E00957E0F /* NavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D473B2207701E00957E0F /* NavigationBarProtocol.swift */; };
+		AE6D473E220774FD00957E0F /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D473D220774FD00957E0F /* UINavigationController+Extensions.swift */; };
+		AE6D47412207791600957E0F /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D473F2207791600957E0F /* MenuCollectionViewCell.swift */; };
+		AE6D4744220779EB00957E0F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D4743220779EB00957E0F /* BaseCollectionViewCell.swift */; };
 		AE71FF3722024B680025DA5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FF3622024B680025DA5A /* UIColor+Extensions.swift */; };
 		AE71FF3922024C090025DA5A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FF3822024C090025DA5A /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +37,11 @@
 		AE23917120F4C71C00736B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE67592221FA376F00183845 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		AE67592421FA379D00183845 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AE6D473822076FC500957E0F /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		AE6D473B2207701E00957E0F /* NavigationBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarProtocol.swift; sourceTree = "<group>"; };
+		AE6D473D220774FD00957E0F /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		AE6D473F2207791600957E0F /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE6D4743220779EB00957E0F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE71FF3622024B680025DA5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		AE71FF3822024C090025DA5A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,8 +60,9 @@
 		AE21E61C21FA320E0057FE64 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AE6D473A2207701100957E0F /* Protocols */,
+				AE6D473722076FB300957E0F /* View */,
 				AE21E62C21FA34AB0057FE64 /* Cells */,
-				AE67592421FA379D00183845 /* HomeView.swift */,
 				AE21E61D21FA321D0057FE64 /* HomeViewController.swift */,
 				AE67592221FA376F00183845 /* HomeViewController.xib */,
 			);
@@ -66,6 +77,7 @@
 				AE21E62621FA32850057FE64 /* UICollectionView+Extensions.swift */,
 				AE71FF3622024B680025DA5A /* UIColor+Extensions.swift */,
 				AE71FF3822024C090025DA5A /* UIView+Extensions.swift */,
+				AE6D473D220774FD00957E0F /* UINavigationController+Extensions.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -74,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				AE21E62D21FA34BB0057FE64 /* HomeCollectionViewCell.swift */,
+				AE6D473F2207791600957E0F /* MenuCollectionViewCell.swift */,
+				AE6D4743220779EB00957E0F /* BaseCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -120,6 +134,23 @@
 				AE21E61C21FA320E0057FE64 /* HomeViewController */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		AE6D473722076FB300957E0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE67592421FA379D00183845 /* HomeView.swift */,
+				AE6D473822076FC500957E0F /* MenuBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE6D473A2207701100957E0F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AE6D473B2207701E00957E0F /* NavigationBarProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +224,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE21E62B21FA32850057FE64 /* UICollectionView+Extensions.swift in Sources */,
+				AE6D4744220779EB00957E0F /* BaseCollectionViewCell.swift in Sources */,
 				AE67592521FA379D00183845 /* HomeView.swift in Sources */,
+				AE6D473E220774FD00957E0F /* UINavigationController+Extensions.swift in Sources */,
 				AE21E62921FA32850057FE64 /* UITableView+Extensions.swift in Sources */,
+				AE6D47412207791600957E0F /* MenuCollectionViewCell.swift in Sources */,
 				AE71FF3922024C090025DA5A /* UIView+Extensions.swift in Sources */,
+				AE6D473C2207701E00957E0F /* NavigationBarProtocol.swift in Sources */,
+				AE6D473922076FC500957E0F /* MenuBar.swift in Sources */,
 				AE71FF3722024B680025DA5A /* UIColor+Extensions.swift in Sources */,
 				AE23916620F4C71B00736B13 /* AppDelegate.swift in Sources */,
 				AE21E62A21FA32850057FE64 /* ReusableCell.swift in Sources */,
